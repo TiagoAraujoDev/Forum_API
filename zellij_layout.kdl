@@ -15,9 +15,18 @@ layout {
     floating_panes {
       pane name="git" {
         x 15
+        y 3
+        height "85%"
+        width "80%"
+      }
+      pane command="npm" {
+        args "run" "test:watch"
+        start_suspended true
+        x 15
         y 5
         height "85%"
         width "80%"
+        name "TESTS: UNITY"
       }
     }
   }

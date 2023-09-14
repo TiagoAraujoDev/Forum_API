@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "vitest run --dir src/domain",
+    "test:watch": "vitest --dir src/domain"
+  },
   "keywords": [],
   "author": "Tiago Araujo",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.6.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.4"
   }
 }

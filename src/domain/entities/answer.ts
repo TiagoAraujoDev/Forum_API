@@ -6,19 +6,39 @@ interface AnswerProps {
   authorId: UniqueEntityId;
   questionId: UniqueEntityId;
   content: string;
-  createAt: Date;
-  updateAt?: Date;
+  createdAt: Date;
+  updatedAt?: Date;
 }
 
 class Answer extends Entity<AnswerProps> {
+  get authorId() {
+    return this.props.authorId;
+  }
+
+  get questionId() {
+    return this.props.questionId;
+  }
+
   get content() {
     return this.props.content;
   }
 
-  static create(props: Optional<AnswerProps, "createAt">, id?: UniqueEntityId) {
+  get createdAt() {
+    return this.props.createdAt;
+  }
+
+  get updatedAt() {
+    return this.props.updatedAt;
+  }
+
+  get excerpt(): string {
+    return this.content.substring(0, 120).trimEnd().concat("...");
+  }
+
+  static create(props: Optional<AnswerProps, "createdAt">, id?: UniqueEntityId) {
     const answer = new Answer({
       ...props,
-      createAt: new Date()
+      createdAt: new Date()
     }, id);
 
     return answer;

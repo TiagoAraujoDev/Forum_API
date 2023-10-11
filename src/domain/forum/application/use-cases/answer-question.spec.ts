@@ -11,11 +11,11 @@ const fakeAnswerRepository: IAnswerRepository = {
 
 test("createa an answer", async () => {
   const sut = new AnswerQuestionUseCase(fakeAnswerRepository);
-  const answer = await sut.execute({
+  const { answer } = await sut.execute({
     questionId: "",
     instructorId: "",
-    content: "Content for testing",
+    content: "Testing content",
   });
 
-  expect(answer.content).toEqual("Content for testing");
+  expect(answer.content).toEqual("Testing content");
 });
